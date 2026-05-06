@@ -1,11 +1,9 @@
 (function () {
     'use strict';
 
-    // Footer year
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Smooth-scroll the package CTAs and prefill the contact form
     document.querySelectorAll('[data-package]').forEach((el) => {
         el.addEventListener('click', () => {
             const select = document.getElementById('kontakt-paket');
@@ -13,13 +11,10 @@
         });
     });
 
-    // ============ Demo generator ============
-    // Branchen-spezifische Inhalte. Der Generator setzt aus den Eingaben des Nutzers
-    // ein plausibles Website-Mockup zusammen, basierend auf Branche und Stil.
     const branchenContent = {
         handwerk: {
             navItems: ['Start', 'Leistungen', 'Referenzen', 'Kontakt'],
-            heroTitle: (name, ort) => `Handwerk aus Leidenschaft – in ${ort} und Umgebung.`,
+            heroTitle: (n, o) => `Handwerk aus Leidenschaft – in ${o} und Umgebung.`,
             heroSubFallback: 'Zuverlässige Arbeit, faire Preise und ein Team, das mitdenkt. Seit Jahren Ihr Ansprechpartner vor Ort.',
             cta: 'Jetzt Termin anfragen',
             features: [
@@ -30,7 +25,7 @@
         },
         gastronomie: {
             navItems: ['Start', 'Speisekarte', 'Reservierung', 'Kontakt'],
-            heroTitle: (name, ort) => `Genießen in ${ort}. Frisch. Regional. Persönlich.`,
+            heroTitle: (n, o) => `Genießen in ${o}. Frisch. Regional. Persönlich.`,
             heroSubFallback: 'Saisonale Küche aus regionalen Zutaten, mit Liebe zum Detail zubereitet. Wir freuen uns auf Sie.',
             cta: 'Tisch reservieren',
             features: [
@@ -41,7 +36,7 @@
         },
         beratung: {
             navItems: ['Start', 'Leistungen', 'Über mich', 'Kontakt'],
-            heroTitle: (name, ort) => `Klare Beratung. Konkrete Ergebnisse.`,
+            heroTitle: () => `Klare Beratung. Konkrete Ergebnisse.`,
             heroSubFallback: 'Ich begleite Sie und Ihr Unternehmen mit Erfahrung, Struktur und einem offenen Ohr – persönlich aus dem Raum {ort}.',
             cta: 'Erstgespräch buchen',
             features: [
@@ -52,7 +47,7 @@
         },
         praxis: {
             navItems: ['Start', 'Behandlung', 'Team', 'Termin'],
-            heroTitle: (name, ort) => `Ihre Gesundheit hat Vorrang.`,
+            heroTitle: () => `Ihre Gesundheit hat Vorrang.`,
             heroSubFallback: 'Moderne Diagnostik, einfühlsame Behandlung und Zeit für Ihre Fragen. Willkommen in unserer Praxis in {ort}.',
             cta: 'Termin online buchen',
             features: [
@@ -63,7 +58,7 @@
         },
         studio: {
             navItems: ['Start', 'Leistungen', 'Preise', 'Termin'],
-            heroTitle: (name, ort) => `Wohlfühlen in ${ort}.`,
+            heroTitle: (n, o) => `Wohlfühlen in ${o}.`,
             heroSubFallback: 'Ihr Studio für sichtbare Ergebnisse und persönliche Betreuung. Wir nehmen uns Zeit – für Sie.',
             cta: 'Jetzt Termin sichern',
             features: [
@@ -74,7 +69,7 @@
         },
         dienstleistung: {
             navItems: ['Start', 'Leistungen', 'Über uns', 'Kontakt'],
-            heroTitle: (name, ort) => `Zuverlässige Dienstleistung in ${ort}.`,
+            heroTitle: (n, o) => `Zuverlässige Dienstleistung in ${o}.`,
             heroSubFallback: 'Was wir versprechen, halten wir. Pünktlich, transparent und auf Ihre Bedürfnisse abgestimmt.',
             cta: 'Angebot anfordern',
             features: [
@@ -85,7 +80,7 @@
         },
         einzelhandel: {
             navItems: ['Start', 'Sortiment', 'Aktuelles', 'Kontakt'],
-            heroTitle: (name, ort) => `Ihr Geschäft in ${ort}. Mit Charakter.`,
+            heroTitle: (n, o) => `Ihr Geschäft in ${o}. Mit Charakter.`,
             heroSubFallback: 'Sorgfältig ausgewähltes Sortiment, persönliche Beratung und der besondere Service, den Sie online nicht finden.',
             cta: 'Im Laden vorbeischauen',
             features: [
@@ -96,7 +91,7 @@
         },
         sonstiges: {
             navItems: ['Start', 'Über uns', 'Leistungen', 'Kontakt'],
-            heroTitle: (name, ort) => `Willkommen bei ${name}.`,
+            heroTitle: (n) => `Willkommen bei ${n}.`,
             heroSubFallback: 'Persönlich, regional und auf Ihre Bedürfnisse zugeschnitten – aus {ort} für Sie.',
             cta: 'Kontakt aufnehmen',
             features: [
@@ -107,42 +102,11 @@
         }
     };
 
+    // Werkstatt-aligned themes for the live preview
     const styleThemes = {
-        warm: {
-            bg: '#fffaf3',
-            text: '#2a1f14',
-            textMuted: '#6b5942',
-            accent: '#b85d3a',
-            heroBg: '#fcefe1',
-            cardBg: '#ffffff',
-            footerBg: '#f5e7d4',
-            radius: '12px',
-            align: 'left'
-        },
-        modern: {
-            bg: '#ffffff',
-            text: '#0f0f10',
-            textMuted: '#5a5a5e',
-            accent: '#0a0a0b',
-            heroBg: '#f4f4f2',
-            cardBg: '#ffffff',
-            footerBg: '#0f0f10',
-            radius: '4px',
-            align: 'left',
-            footerColor: '#bbb'
-        },
-        seriös: {
-            bg: '#ffffff',
-            text: '#15243d',
-            textMuted: '#5a6a82',
-            accent: '#1f3a5f',
-            heroBg: '#eef2f8',
-            cardBg: '#ffffff',
-            footerBg: '#15243d',
-            radius: '6px',
-            align: 'left',
-            footerColor: '#cdd5e2'
-        }
+        warm:    { bg:'#fffaf3', text:'#2a1f14', textMuted:'#6b5942', accent:'#b85d3a', heroBg:'#fcefe1', cardBg:'#ffffff', footerBg:'#f5e7d4', radius:'8px',  display:"'Fraunces', serif" },
+        modern:  { bg:'#ffffff', text:'#0f0f10', textMuted:'#5a5a5e', accent:'#0a0a0b', heroBg:'#f4f4f2', cardBg:'#ffffff', footerBg:'#0f0f10', radius:'2px',  display:"'Inter', sans-serif", footerColor:'#bbb' },
+        seriös:  { bg:'#ffffff', text:'#15243d', textMuted:'#5a6a82', accent:'#1f3a5f', heroBg:'#eef2f8', cardBg:'#ffffff', footerBg:'#15243d', radius:'4px',  display:"'Fraunces', serif", footerColor:'#cdd5e2' }
     };
 
     const form = document.getElementById('demo-form');
@@ -158,20 +122,13 @@
                 beschreibung: document.getElementById('demo-beschreibung').value.trim(),
                 style: form.querySelector('input[name="demo-style"]:checked').value
             };
-
             renderLoading();
-            // Kurze "Generierungs"-Verzögerung, damit es sich wertig anfühlt
-            setTimeout(() => renderPreview(data), 900);
+            setTimeout(() => renderPreview(data), 800);
         });
     }
 
     function renderLoading() {
-        preview.innerHTML = `
-            <div class="preview-loading">
-                <div class="spinner"></div>
-                <p>Vorschau wird erstellt …</p>
-            </div>
-        `;
+        preview.innerHTML = '<div class="preview-loading"><div class="spinner"></div><p>Vorschau wird erstellt …</p></div>';
     }
 
     function renderPreview(data) {
@@ -183,22 +140,15 @@
             ? escapeHtml(data.beschreibung)
             : content.heroSubFallback.replace('{ort}', escapeHtml(data.ort));
 
-        const navHtml = content.navItems
-            .map((item) => `<span>${item}</span>`)
-            .join('');
-
-        const featuresHtml = content.features
-            .map((f) => `
-                <div class="gp-feature">
-                    <h3>${f.t}</h3>
-                    <p>${f.d.replace('{ort}', escapeHtml(data.ort))}</p>
-                </div>
-            `)
-            .join('');
+        const navHtml = content.navItems.map((i) => `<span>${i}</span>`).join('');
+        const featuresHtml = content.features.map((f) => `
+            <div class="gp-feature">
+                <h3>${f.t}</h3>
+                <p>${f.d.replace('{ort}', escapeHtml(data.ort))}</p>
+            </div>`).join('');
 
         const footerColor = theme.footerColor || theme.textMuted;
-        const slug = slugify(data.name);
-        const url = `${slug}.de`;
+        const url = `${slugify(data.name)}.de`;
 
         const styleVars = `
             --gp-bg: ${theme.bg};
@@ -209,11 +159,11 @@
             --gp-card-bg: ${theme.cardBg};
             --gp-footer-bg: ${theme.footerBg};
             --gp-radius: ${theme.radius};
+            --gp-display: ${theme.display};
         `;
 
-        const footerStyle = data.style === 'modern' || data.style === 'seriös'
-            ? `style="color: ${footerColor};"`
-            : '';
+        const footerStyle = (data.style === 'modern' || data.style === 'seriös')
+            ? `style="color: ${footerColor};"` : '';
 
         preview.innerHTML = `
             <div class="preview-browser">
@@ -230,56 +180,40 @@
                     <p>${heroSub}</p>
                     <a class="gp-cta">${content.cta}</a>
                 </div>
-                <div class="gp-features">
-                    ${featuresHtml}
-                </div>
+                <div class="gp-features">${featuresHtml}</div>
                 <div class="gp-footer" ${footerStyle}>
                     © ${new Date().getFullYear()} ${escapeHtml(data.name)} · ${escapeHtml(data.ort)} · Impressum · Datenschutz
                 </div>
-            </div>
-        `;
+            </div>`;
 
-        // Sanftes Einblenden
         const result = preview.querySelector('.preview-result');
         if (result) {
             result.style.opacity = '0';
-            requestAnimationFrame(() => {
-                result.style.opacity = '1';
-            });
+            requestAnimationFrame(() => { result.style.opacity = '1'; });
         }
     }
 
     function escapeHtml(str) {
         if (!str) return '';
         return String(str)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#039;');
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
     }
 
     function slugify(str) {
-        return String(str)
-            .toLowerCase()
+        return String(str).toLowerCase()
             .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
-            .normalize('NFD')
-            .replace(/[̀-ͯ]/g, '')
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-+|-+$/g, '')
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
             .substring(0, 30) || 'ihr-unternehmen';
     }
 
-    // ============ Contact form ============
     const contactForm = document.getElementById('contact-form');
     const contactFeedback = document.getElementById('contact-feedback');
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-
-            // Ohne Backend können wir nichts wirklich versenden.
-            // Wir zeigen eine Erfolgsmeldung und öffnen optional den Mail-Client als Fallback.
             const formData = new FormData(contactForm);
             const subject = encodeURIComponent(`Anfrage von ${formData.get('name') || 'Website-Besucher'}`);
             const bodyLines = [
@@ -300,9 +234,7 @@
                 Falls sich kein Bestätigungsfenster öffnet, schreiben Sie uns direkt an
                 <a href="mailto:hallo@tmtn-studio.de?subject=${subject}&body=${body}">hallo@tmtn-studio.de</a>.
             `;
-
             contactForm.reset();
-            contactFeedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     }
 })();
