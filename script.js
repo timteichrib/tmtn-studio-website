@@ -13,10 +13,18 @@
 
     const branchenContent = {
         handwerk: {
-            navItems: ['Start', 'Leistungen', 'Referenzen', 'Kontakt'],
-            heroTitle: (n, o) => `Handwerk aus Leidenschaft – in ${o} und Umgebung.`,
+            eyebrow: 'Meisterbetrieb',
+            navItems: ['Leistungen', 'Referenzen', 'Über uns', 'Kontakt'],
+            navCta: 'Termin anfragen',
+            heroTitle: (n, o) => `Handwerk aus Leidenschaft – <em>in ${o} und Umgebung.</em>`,
             heroSubFallback: 'Zuverlässige Arbeit, faire Preise und ein Team, das mitdenkt. Seit Jahren Ihr Ansprechpartner vor Ort.',
-            cta: 'Jetzt Termin anfragen',
+            cta: 'Termin anfragen',
+            ctaGhost: 'Leistungen ansehen →',
+            trust: ['Meisterbetrieb', 'Festpreis-Garantie', 'Notdienst 24/7'],
+            aboutTitle: 'Werkstatt mit Geschichte.',
+            aboutBody: 'Drei Generationen, dasselbe Versprechen: solide Arbeit, ehrliche Beratung und Termine, die halten. Wir kommen, schauen, sagen Ihnen ehrlich, was nötig ist – und was nicht.',
+            quote: 'Sauber, pünktlich und der Preis stimmt am Ende auch noch.',
+            quoteAttr: 'M. Becker · Kunde aus {ort}',
             features: [
                 { t: 'Erfahrung', d: 'Geprüfte Qualität nach Meisterstandard.' },
                 { t: 'Termintreu', d: 'Fester Zeitplan, klare Absprachen.' },
@@ -24,10 +32,18 @@
             ]
         },
         gastronomie: {
-            navItems: ['Start', 'Speisekarte', 'Reservierung', 'Kontakt'],
-            heroTitle: (n, o) => `Genießen in ${o}. Frisch. Regional. Persönlich.`,
+            eyebrow: 'Restaurant',
+            navItems: ['Speisekarte', 'Reservieren', 'Über uns', 'Kontakt'],
+            navCta: 'Tisch reservieren',
+            heroTitle: (n, o) => `Genießen in ${o}. <em>Frisch. Regional. Persönlich.</em>`,
             heroSubFallback: 'Saisonale Küche aus regionalen Zutaten, mit Liebe zum Detail zubereitet. Wir freuen uns auf Sie.',
             cta: 'Tisch reservieren',
+            ctaGhost: 'Speisekarte ansehen →',
+            trust: ['Mo–Sa geöffnet', 'Hausgemacht', 'Reservierung empfohlen'],
+            aboutTitle: 'Aus der Region. Für die Region.',
+            aboutBody: 'Unsere Karte wechselt mit der Saison. Was bei uns auf den Tisch kommt, kennt der Bauer mit Vornamen. Frischer geht es nicht.',
+            quote: 'Das beste Essen weit und breit – und der Service erst.',
+            quoteAttr: 'Stammgast aus {ort}',
             features: [
                 { t: 'Regional', d: 'Zutaten von Erzeugern aus der Umgebung.' },
                 { t: 'Saisonal', d: 'Karte wechselt mit den Jahreszeiten.' },
@@ -35,10 +51,18 @@
             ]
         },
         beratung: {
-            navItems: ['Start', 'Leistungen', 'Über mich', 'Kontakt'],
-            heroTitle: () => `Klare Beratung. Konkrete Ergebnisse.`,
+            eyebrow: 'Beratung & Coaching',
+            navItems: ['Leistungen', 'Methode', 'Über mich', 'Kontakt'],
+            navCta: 'Erstgespräch',
+            heroTitle: () => `Klare Beratung. <em>Konkrete Ergebnisse.</em>`,
             heroSubFallback: 'Ich begleite Sie und Ihr Unternehmen mit Erfahrung, Struktur und einem offenen Ohr – persönlich aus dem Raum {ort}.',
             cta: 'Erstgespräch buchen',
+            ctaGhost: 'So arbeite ich →',
+            trust: ['Erstgespräch kostenfrei', 'Persönlich', 'Diskret'],
+            aboutTitle: 'Mehr Klarheit. Weniger Bauchgefühl.',
+            aboutBody: 'In jedem Mandat gehen wir methodisch vor: zuhören, einordnen, gemeinsam einen Plan entwickeln. Sie wissen am Ende des ersten Gesprächs, woran Sie sind.',
+            quote: 'Endlich jemand, der zuhört, bevor er Lösungen verkauft.',
+            quoteAttr: 'Geschäftsführerin · Kundin aus {ort}',
             features: [
                 { t: 'Persönlich', d: 'Ein fester Ansprechpartner, kein Callcenter.' },
                 { t: 'Erfahren', d: 'Praxiswissen aus über 100 Mandaten.' },
@@ -46,10 +70,18 @@
             ]
         },
         praxis: {
-            navItems: ['Start', 'Behandlung', 'Team', 'Termin'],
-            heroTitle: () => `Ihre Gesundheit hat Vorrang.`,
+            eyebrow: 'Praxis',
+            navItems: ['Behandlung', 'Team', 'Termin', 'Kontakt'],
+            navCta: 'Termin online',
+            heroTitle: () => `Ihre Gesundheit <em>hat Vorrang.</em>`,
             heroSubFallback: 'Moderne Diagnostik, einfühlsame Behandlung und Zeit für Ihre Fragen. Willkommen in unserer Praxis in {ort}.',
             cta: 'Termin online buchen',
+            ctaGhost: 'Unser Team kennenlernen →',
+            trust: ['Alle Kassen', 'Barrierefrei', 'Termine auch abends'],
+            aboutTitle: 'Zeit, die ankommt.',
+            aboutBody: 'Bei uns sind Sie nicht „der Nächste". Wir nehmen uns Zeit, hören zu und erklären verständlich, was wir tun – und warum.',
+            quote: 'Endlich eine Praxis, in der man sich nicht wie eine Nummer fühlt.',
+            quoteAttr: 'Patientin aus {ort}',
             features: [
                 { t: 'Modern', d: 'Aktuelle Geräte und Verfahren.' },
                 { t: 'Einfühlsam', d: 'Wir nehmen uns Zeit für Sie.' },
@@ -57,10 +89,18 @@
             ]
         },
         studio: {
-            navItems: ['Start', 'Leistungen', 'Preise', 'Termin'],
-            heroTitle: (n, o) => `Wohlfühlen in ${o}.`,
+            eyebrow: 'Studio',
+            navItems: ['Leistungen', 'Preise', 'Team', 'Termin'],
+            navCta: 'Termin sichern',
+            heroTitle: (n, o) => `Wohlfühlen <em>in ${o}.</em>`,
             heroSubFallback: 'Ihr Studio für sichtbare Ergebnisse und persönliche Betreuung. Wir nehmen uns Zeit – für Sie.',
-            cta: 'Jetzt Termin sichern',
+            cta: 'Termin sichern',
+            ctaGhost: 'Preise ansehen →',
+            trust: ['Termine Mo–Sa', 'Auch abends', 'Online buchbar'],
+            aboutTitle: 'Ihr Termin. Ihre Zeit.',
+            aboutBody: 'Bei uns gibt es keine Akkord-Termine. Wir planen so, dass Sie nicht hetzen müssen – und wir nicht hetzen müssen. Das macht den Unterschied.',
+            quote: 'Ich gehe immer entspannter raus, als ich reingekommen bin.',
+            quoteAttr: 'Stammkundin aus {ort}',
             features: [
                 { t: 'Persönlich', d: 'Individuelle Beratung vor jedem Termin.' },
                 { t: 'Hochwertig', d: 'Ausgewählte Produkte und Verfahren.' },
@@ -68,10 +108,18 @@
             ]
         },
         dienstleistung: {
-            navItems: ['Start', 'Leistungen', 'Über uns', 'Kontakt'],
-            heroTitle: (n, o) => `Zuverlässige Dienstleistung in ${o}.`,
+            eyebrow: 'Dienstleistung',
+            navItems: ['Leistungen', 'Über uns', 'Referenzen', 'Kontakt'],
+            navCta: 'Angebot anfragen',
+            heroTitle: (n, o) => `Zuverlässige Dienstleistung <em>in ${o}.</em>`,
             heroSubFallback: 'Was wir versprechen, halten wir. Pünktlich, transparent und auf Ihre Bedürfnisse abgestimmt.',
             cta: 'Angebot anfordern',
+            ctaGhost: 'Wie wir arbeiten →',
+            trust: ['Festpreise', 'Persönlicher Kontakt', 'Schnelle Reaktion'],
+            aboutTitle: 'Verlässlich. Persönlich. Vor Ort.',
+            aboutBody: 'Sie bekommen bei uns nicht eine Hotline, sondern eine feste Ansprechpartnerin. Das spart Zeit – Ihre und unsere.',
+            quote: 'Wenn ich anrufe, geht jemand ran. Schon das ist heute selten.',
+            quoteAttr: 'Kundin aus {ort}',
             features: [
                 { t: 'Pünktlich', d: 'Wir sind dann da, wenn wir es zusagen.' },
                 { t: 'Transparent', d: 'Klare Preise, keine Überraschungen.' },
@@ -79,10 +127,18 @@
             ]
         },
         einzelhandel: {
-            navItems: ['Start', 'Sortiment', 'Aktuelles', 'Kontakt'],
-            heroTitle: (n, o) => `Ihr Geschäft in ${o}. Mit Charakter.`,
+            eyebrow: 'Fachgeschäft',
+            navItems: ['Sortiment', 'Aktuelles', 'Über uns', 'Kontakt'],
+            navCta: 'Anfahrt',
+            heroTitle: (n, o) => `Ihr Geschäft in ${o}. <em>Mit Charakter.</em>`,
             heroSubFallback: 'Sorgfältig ausgewähltes Sortiment, persönliche Beratung und der besondere Service, den Sie online nicht finden.',
             cta: 'Im Laden vorbeischauen',
+            ctaGhost: 'Sortiment entdecken →',
+            trust: ['Mo–Sa geöffnet', 'Persönliche Beratung', 'Click & Collect'],
+            aboutTitle: 'Aussuchen, anfassen, mitnehmen.',
+            aboutBody: 'Wir kennen jedes Stück in unserem Laden. Wenn etwas nicht passt, finden wir mit Ihnen zusammen, was passt. Online geht das nicht.',
+            quote: 'Hier wird man noch beraten, statt nur abkassiert.',
+            quoteAttr: 'Stammkunde aus {ort}',
             features: [
                 { t: 'Auswahl', d: 'Sortiment, das Sie hier nur bei uns finden.' },
                 { t: 'Beratung', d: 'Wir kennen unsere Produkte – und Sie.' },
@@ -90,10 +146,18 @@
             ]
         },
         sonstiges: {
-            navItems: ['Start', 'Über uns', 'Leistungen', 'Kontakt'],
-            heroTitle: (n) => `Willkommen bei ${n}.`,
+            eyebrow: 'Aus der Region',
+            navItems: ['Über uns', 'Leistungen', 'Aktuelles', 'Kontakt'],
+            navCta: 'Kontakt',
+            heroTitle: (n) => `Willkommen <em>bei ${n}.</em>`,
             heroSubFallback: 'Persönlich, regional und auf Ihre Bedürfnisse zugeschnitten – aus {ort} für Sie.',
             cta: 'Kontakt aufnehmen',
+            ctaGhost: 'Mehr erfahren →',
+            trust: ['Persönlich', 'Aus {ort}', 'Verlässlich'],
+            aboutTitle: 'Klein. Persönlich. Verwurzelt.',
+            aboutBody: 'Wir sind hier zuhause. Was wir tun, machen wir für Menschen, die wir kennen – und die uns kennen lernen sollen.',
+            quote: 'Genau die persönliche Note, die heute oft fehlt.',
+            quoteAttr: 'Kundin aus {ort}',
             features: [
                 { t: 'Persönlich', d: 'Ein Ansprechpartner für alles.' },
                 { t: 'Regional', d: 'Verwurzelt in {ort} und Umgebung.' },
@@ -104,9 +168,27 @@
 
     // Werkstatt-aligned themes for the live preview
     const styleThemes = {
-        warm:    { bg:'#fffaf3', text:'#2a1f14', textMuted:'#6b5942', accent:'#b85d3a', heroBg:'#fcefe1', cardBg:'#ffffff', footerBg:'#f5e7d4', radius:'8px',  display:"'Fraunces', serif" },
-        modern:  { bg:'#ffffff', text:'#0f0f10', textMuted:'#5a5a5e', accent:'#0a0a0b', heroBg:'#f4f4f2', cardBg:'#ffffff', footerBg:'#0f0f10', radius:'2px',  display:"'Inter', sans-serif", footerColor:'#bbb' },
-        seriös:  { bg:'#ffffff', text:'#15243d', textMuted:'#5a6a82', accent:'#1f3a5f', heroBg:'#eef2f8', cardBg:'#ffffff', footerBg:'#15243d', radius:'4px',  display:"'Fraunces', serif", footerColor:'#cdd5e2' }
+        warm: {
+            bg:'#fffaf3', text:'#2a1f14', textMuted:'#6b5942',
+            accent:'#b85d3a', accentSoft:'#f2dccb',
+            heroBg:'#fcefe1', cardBg:'#ffffff', footerBg:'#f5e7d4',
+            rule:'rgba(42,31,20,.10)', radius:'4px',
+            display:"'Fraunces', Georgia, serif", body:"'Inter', sans-serif"
+        },
+        modern: {
+            bg:'#ffffff', text:'#0f0f10', textMuted:'#6a6a6e',
+            accent:'#0f0f10', accentSoft:'#ececea',
+            heroBg:'#f4f4f2', cardBg:'#ffffff', footerBg:'#0f0f10', footerText:'#bbb',
+            rule:'rgba(0,0,0,.10)', radius:'2px',
+            display:"'Inter', sans-serif", body:"'Inter', sans-serif"
+        },
+        'seriös': {
+            bg:'#ffffff', text:'#15243d', textMuted:'#5a6a82',
+            accent:'#1f3a5f', accentSoft:'#e3eaf3',
+            heroBg:'#eef2f8', cardBg:'#ffffff', footerBg:'#15243d', footerText:'#cdd5e2',
+            rule:'rgba(21,36,61,.10)', radius:'4px',
+            display:"'Fraunces', Georgia, serif", body:"'Inter', sans-serif"
+        }
     };
 
     const form = document.getElementById('demo-form');
@@ -135,35 +217,44 @@
         const content = branchenContent[data.branche] || branchenContent.sonstiges;
         const theme = styleThemes[data.style] || styleThemes.warm;
 
-        const heroTitle = content.heroTitle(escapeHtml(data.name), escapeHtml(data.ort));
+        const ortEsc = escapeHtml(data.ort);
+        const nameEsc = escapeHtml(data.name);
+        const fillOrt = (s) => s.replace(/\{ort\}/g, ortEsc);
+
+        const heroTitle = content.heroTitle(nameEsc, ortEsc);
         const heroSub = data.beschreibung
             ? escapeHtml(data.beschreibung)
-            : content.heroSubFallback.replace('{ort}', escapeHtml(data.ort));
+            : fillOrt(content.heroSubFallback);
 
         const navHtml = content.navItems.map((i) => `<span>${i}</span>`).join('');
-        const featuresHtml = content.features.map((f) => `
+        const trustHtml = content.trust.map((t) =>
+            `<span><span class="gp-trust-dot"></span>${fillOrt(t)}</span>`
+        ).join('');
+        const featuresHtml = content.features.map((f, i) => `
             <div class="gp-feature">
+                <span class="gp-feature-num">0${i + 1}</span>
                 <h3>${f.t}</h3>
-                <p>${f.d.replace('{ort}', escapeHtml(data.ort))}</p>
+                <p>${fillOrt(f.d)}</p>
             </div>`).join('');
 
-        const footerColor = theme.footerColor || theme.textMuted;
         const url = `${slugify(data.name)}.de`;
+        const footerText = theme.footerText || theme.textMuted;
 
-        const styleVars = `
-            --gp-bg: ${theme.bg};
-            --gp-text: ${theme.text};
-            --gp-text-muted: ${theme.textMuted};
-            --gp-accent: ${theme.accent};
-            --gp-hero-bg: ${theme.heroBg};
-            --gp-card-bg: ${theme.cardBg};
-            --gp-footer-bg: ${theme.footerBg};
-            --gp-radius: ${theme.radius};
-            --gp-display: ${theme.display};
-        `;
-
-        const footerStyle = (data.style === 'modern' || data.style === 'seriös')
-            ? `style="color: ${footerColor};"` : '';
+        const styleVars = [
+            `--gp-bg:${theme.bg}`,
+            `--gp-text:${theme.text}`,
+            `--gp-text-muted:${theme.textMuted}`,
+            `--gp-accent:${theme.accent}`,
+            `--gp-accent-soft:${theme.accentSoft}`,
+            `--gp-hero-bg:${theme.heroBg}`,
+            `--gp-card-bg:${theme.cardBg}`,
+            `--gp-footer-bg:${theme.footerBg}`,
+            `--gp-footer-text:${footerText}`,
+            `--gp-rule:${theme.rule}`,
+            `--gp-radius:${theme.radius}`,
+            `--gp-display:${theme.display}`,
+            `--gp-body:${theme.body}`
+        ].join(';');
 
         preview.innerHTML = `
             <div class="preview-browser">
@@ -172,17 +263,35 @@
             </div>
             <div class="gp preview-result" style="${styleVars}">
                 <div class="gp-nav">
-                    <div class="gp-logo">${escapeHtml(data.name)}</div>
+                    <div class="gp-logo">${nameEsc}<span class="gp-logo-dot"></span></div>
                     <div class="gp-nav-links">${navHtml}</div>
+                    <a class="gp-nav-cta">${content.navCta}</a>
                 </div>
                 <div class="gp-hero">
+                    <span class="gp-eyebrow">${content.eyebrow} · ${ortEsc}</span>
                     <h1>${heroTitle}</h1>
                     <p>${heroSub}</p>
-                    <a class="gp-cta">${content.cta}</a>
+                    <div class="gp-hero-cta">
+                        <a class="gp-cta">${content.cta}</a>
+                        <a class="gp-cta-ghost">${content.ctaGhost}</a>
+                    </div>
+                    <div class="gp-trust">${trustHtml}</div>
                 </div>
                 <div class="gp-features">${featuresHtml}</div>
-                <div class="gp-footer" ${footerStyle}>
-                    © ${new Date().getFullYear()} ${escapeHtml(data.name)} · ${escapeHtml(data.ort)} · Impressum · Datenschutz
+                <div class="gp-about">
+                    <div>
+                        <span class="gp-numglyph">02 — Über uns</span>
+                        <h2>${content.aboutTitle}</h2>
+                        <p>${fillOrt(content.aboutBody)}</p>
+                    </div>
+                    <blockquote class="gp-quote">
+                        „${content.quote}"
+                        <span class="gp-quote-attr">— ${fillOrt(content.quoteAttr)}</span>
+                    </blockquote>
+                </div>
+                <div class="gp-footer">
+                    <span>© ${new Date().getFullYear()} ${nameEsc} · ${ortEsc}</span>
+                    <span class="gp-footer-links"><span>Impressum</span><span>Datenschutz</span><span>Kontakt</span></span>
                 </div>
             </div>`;
 
