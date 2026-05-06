@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 44" width="260" height="44" role="img" aria-label="TMTN Studio">
+  <text x="0" y="34" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="36" letter-spacing="-0.02em" fill="#F5F1EA">TMTN</text>
+  <text x="120" y="34" font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="400" font-size="26" fill="#F5F1EA">Studio</text>
+  <circle cx="220" cy="28" r="3.5" fill="#B85D3A"></circle>
+</svg>

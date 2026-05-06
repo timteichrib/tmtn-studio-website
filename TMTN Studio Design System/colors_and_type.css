@@ -1,0 +1,205 @@
+/* ============================================================
+   TMTN Studio — Design Tokens
+   Werkstatt direction: paper-warm + deep navy ink + clay accent.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ---------- Color: surface ---------- */
+  --paper:        #F5F1EA;   /* default page background — warm off-white */
+  --paper-deep:   #EBE5DA;   /* alt section banding, swatches */
+  --paper-bright: #FFFFFF;   /* cards on paper, demo browser */
+
+  /* ---------- Color: ink ---------- */
+  --ink:        #15243D;   /* default text + headlines (warm navy) */
+  --ink-deep:   #0B1626;   /* hover state for primary buttons & emphasis */
+  --ink-soft:   #5A6A82;   /* secondary text, captions */
+  --ink-faint:  #8A95A8;   /* tertiary text, placeholder, dividers in dense UI */
+
+  /* ---------- Color: accent ---------- */
+  --clay:       #B85D3A;   /* warm accent — featured badges, numbering glyph */
+  --clay-deep:  #934628;   /* hover for clay surfaces */
+  --clay-soft:  #F2DCCB;   /* clay-tinted background, eyebrow pill */
+
+  /* ---------- Color: semantic ---------- */
+  --moss:       #2D6A4F;   /* success, checkmarks */
+  --moss-soft:  #DCEAE2;   /* success surface */
+  --rust:       #9C2A1F;   /* error, destructive */
+  --rust-soft:  #F4D8D3;   /* error surface */
+
+  /* ---------- Color: rule ---------- */
+  --rule:       #DCD4C7;   /* hairline border on paper */
+  --rule-strong:#15243D;   /* strong border (= ink) */
+  --grid:       rgba(21, 36, 61, 0.08); /* engineering-grid line */
+
+  /* ---------- Typography: families ---------- */
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Cambria', Georgia, serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---------- Typography: scale (rem) ---------- */
+  --fs-display: 3.75rem;   /* 60 — hero h1 desktop */
+  --fs-h1:      2.75rem;   /* 44 — section h1 */
+  --fs-h2:      1.75rem;   /* 28 — h2 */
+  --fs-h3:      1.25rem;   /* 20 — h3 */
+  --fs-lead:    1.0625rem; /* 17 — body lead */
+  --fs-body:    1rem;      /* 16 — body */
+  --fs-sm:      0.9375rem; /* 15 — small */
+  --fs-eyebrow: 0.8125rem; /* 13 — eyebrow / caption */
+  --fs-micro:   0.75rem;   /* 12 — legal / footer */
+
+  /* ---------- Typography: weights ---------- */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* ---------- Typography: line heights ---------- */
+  --lh-tight:  1.1;
+  --lh-snug:   1.25;
+  --lh-normal: 1.55;
+  --lh-loose:  1.7;
+
+  /* ---------- Typography: tracking ---------- */
+  --tr-display: -0.02em;
+  --tr-tight:   -0.01em;
+  --tr-normal:   0;
+  --tr-wide:     0.06em;
+  --tr-wider:    0.12em;
+
+  /* ---------- Spacing scale (4-px base) ---------- */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+
+  /* ---------- Layout ---------- */
+  --container:        1120px;
+  --container-narrow: 760px;
+  --section-y:        96px;
+  --section-y-mobile: 64px;
+  --header-h:         72px;
+
+  /* ---------- Radius ---------- */
+  --r-0:    0px;
+  --r-1:    4px;     /* default — buttons, inputs, cards */
+  --r-2:    8px;     /* media wells, demo preview frame */
+  --r-pill: 999px;   /* eyebrow tag, badge */
+
+  /* ---------- Border weight ---------- */
+  --bw-1: 1px;
+  --bw-2: 2px;
+
+  /* ---------- Shadow ---------- */
+  --shadow-none: none;
+  --shadow-sm:   0 1px 2px rgba(21, 36, 61, 0.04), 0 2px 8px rgba(21, 36, 61, 0.04);
+  --shadow-md:   0 4px 16px rgba(21, 36, 61, 0.06), 0 2px 4px rgba(21, 36, 61, 0.04);
+  --shadow-lg:   0 8px 32px rgba(21, 36, 61, 0.10);
+
+  /* ---------- Motion ---------- */
+  --t-fast:   120ms ease;
+  --t-base:   180ms ease;
+  --t-slow:   240ms ease;
+  --t-loading: 800ms linear;
+
+  /* ---------- Focus ring ---------- */
+  --focus-ring: 0 0 0 3px rgba(21, 36, 61, 0.18);
+}
+
+/* ============================================================
+   Semantic element styles
+   Apply by adding the body class .tmtn or scoping under it.
+   ============================================================ */
+
+.tmtn {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tmtn h1, .tmtn .h1,
+.tmtn h2, .tmtn .h2 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tr-display);
+  line-height: var(--lh-tight);
+  color: var(--ink);
+  margin: 0 0 var(--sp-4);
+  text-wrap: balance;
+}
+
+.tmtn h1, .tmtn .h1 { font-size: var(--fs-h1); }
+.tmtn .display       { font-size: var(--fs-display); }
+.tmtn h2, .tmtn .h2 { font-size: var(--fs-h2); }
+
+.tmtn h3, .tmtn .h3 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-tight);
+  color: var(--ink);
+  margin: 0 0 var(--sp-2);
+}
+
+.tmtn p, .tmtn .body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--ink);
+  margin: 0 0 var(--sp-4);
+  text-wrap: pretty;
+}
+
+.tmtn .lead {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-normal);
+  color: var(--ink-soft);
+}
+
+.tmtn .small  { font-size: var(--fs-sm);    color: var(--ink-soft); }
+.tmtn .micro  { font-size: var(--fs-micro); color: var(--ink-soft); letter-spacing: 0; }
+
+.tmtn .eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tr-wider);
+  color: var(--clay);
+}
+
+.tmtn .numglyph {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-medium);
+  font-variant-numeric: tabular-nums;
+  color: var(--clay);
+  letter-spacing: var(--tr-normal);
+}
+
+.tmtn .mono   { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.tmtn a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: text-decoration-color var(--t-base);
+}
+
+.tmtn a:hover {
+  text-decoration-color: var(--clay);
+}
