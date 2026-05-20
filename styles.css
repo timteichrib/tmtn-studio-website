@@ -137,6 +137,7 @@ p  { margin: 0 0 16px; text-wrap: pretty; }
 
 .grid { display: grid; gap: 16px; }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 
 /* Cards */
 .card {
@@ -152,6 +153,18 @@ p  { margin: 0 0 16px; text-wrap: pretty; }
   display: flex; align-items: center; justify-content: center; color: var(--ink);
 }
 .card p { color: var(--ink-soft); font-size: 15px; margin: 0; line-height: 1.55; }
+
+/* Problem cards */
+.problem-grid { align-items: stretch; }
+.problem-card {
+  background: var(--paper-bright);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--clay);
+  border-radius: var(--r-1);
+  padding: 24px;
+}
+.problem-card h3 { font-size: 18px; margin-bottom: 10px; }
+.problem-card p { color: var(--ink-soft); font-size: 15px; margin: 0; line-height: 1.55; }
 
 /* Packages */
 .packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: stretch; }
