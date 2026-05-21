@@ -11,6 +11,46 @@
         });
     });
 
+    // Mobile navigation toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const primaryNav = document.getElementById('primary-nav');
+    if (navToggle && primaryNav) {
+        const closeNav = () => {
+            primaryNav.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Menü öffnen');
+        };
+        navToggle.addEventListener('click', () => {
+            const open = primaryNav.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', String(open));
+            navToggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+        });
+        primaryNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeNav));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
+    }
+
+    // Scroll reveal — apply to common content blocks
+    const revealSelectors = [
+        '.section-head', '.card', '.problem-card', '.package',
+        '.transparency-item', '.faq details', '.hero-bullets',
+        '.demo-form', '.contact-form'
+    ];
+    const revealEls = document.querySelectorAll(revealSelectors.join(','));
+    revealEls.forEach((el) => el.setAttribute('data-reveal', ''));
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        revealEls.forEach((el) => io.observe(el));
+    } else {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+    }
+
     const branchenContent = {
         handwerk: {
             eyebrow: 'Meisterbetrieb',
@@ -205,6 +245,9 @@
                 style: form.querySelector('input[name="demo-style"]:checked').value
             };
             renderLoading();
+            if (window.matchMedia('(max-width: 900px)').matches) {
+                preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
             setTimeout(() => renderPreview(data), 800);
         });
     }
